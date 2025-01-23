@@ -25,7 +25,7 @@ namespace ADONETCORE.Repositorys
 
         public async Task<List<Departamento>> GetDepartamentosAsync()
         {
-            string sql = "select * from DEPT";
+            string sql = "SP_ALL_DEPARTAMENTOS";
             this.com.CommandType = System.Data.CommandType.Text;
             this.com.CommandText = sql;
             await this.cn.OpenAsync();
@@ -46,7 +46,7 @@ namespace ADONETCORE.Repositorys
             await this.cn.CloseAsync();
             return departamentos;
         }
-
+        
         public async Task InsertDepartamentosAsync(int id, string nombre, string localidad)
         {
             string sql = "insert into DEPT values (@id, @nombre, @localidad)";
